@@ -17,6 +17,6 @@ else
 
 
 bool DayOff( int num )
-{q
+{
     return num == 6 || num == 7;
 }
