@@ -7,11 +7,12 @@
 
 Console.Write("Введите пятизначное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
+int numberModulus = Math.Abs(number);
 
-if (number > 9999 && number < 100000)
+if (numberModulus > 9999 && numberModulus < 100000)
 {
-    bool result = Palindrome (number);
-    Console.WriteLine(result ? "Да" : "нет");
+    bool result = Palindrome (numberModulus);
+    Console.WriteLine(result ? "Да" : "Нет");
 }
 else
 {
