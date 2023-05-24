@@ -4,22 +4,22 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
-int[] CreateArray(int size)
+int[] CreateArrayRndInt(int size, int min, int max)
 {
     int[] array = new int [size];
-    var rnd = new Random();
+    Random rnd = new Random();
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = rnd.Next(-99,100);
+        array[i] = rnd.Next(min, max);
     }
     return array;
 }
 
-void PrintArray(int[] array)
+void PrintArray(int[] array, string sep)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
+        if (i < array.Length - 1) Console.Write($"{array[i]}{sep} ");
         else Console.Write($"{array[i]}");
     }
 }
@@ -34,10 +34,10 @@ int OddPositionsSum(int[] arr)
     return sum;
 }
 
-int[] newArray =  CreateArray(4);
+int[] newArray = CreateArrayRndInt(4, -99, 100);
 int oddPositionsSum = OddPositionsSum(newArray);
 
 Console.Write("[");
-PrintArray(newArray);
+PrintArray(newArray, ",");
 Console.Write("] -> ");
 Console.Write($"{oddPositionsSum}");

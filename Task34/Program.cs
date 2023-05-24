@@ -5,22 +5,22 @@
 // [345, 897, 568, 234] -> 2
 
 
-int[] CreateArray(int size)
+int[] CreateArrayRndInt(int size, int min, int max)
 {
     int[] array = new int [size];
-    var rnd = new Random();
+    Random rnd = new Random();
     for (int i = 0; i < array.Length; i++)
     {
-        array[i] = rnd.Next(100,1000);
+        array[i] = rnd.Next(min, max);
     }
     return array;
 }
 
-void PrintArray(int[] array)
+void PrintArray(int[] array, string sep)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        if (i < array.Length - 1) Console.Write($"{array[i]}, ");
+        if (i < array.Length - 1) Console.Write($"{array[i]}{sep} ");
         else Console.Write($"{array[i]}");
     }
 }
@@ -36,10 +36,10 @@ int QuantityEvenNum(int[] arr)
 }
 
 
-int[] newArray =  CreateArray(4);
+int[] newArray = CreateArrayRndInt(4, 100, 1000);
 int quantityEvenNum = QuantityEvenNum(newArray);
 
 Console.Write("[");
-PrintArray(newArray);
+PrintArray(newArray, ",");
 Console.Write("] -> ");
 Console.Write($"{quantityEvenNum}");
