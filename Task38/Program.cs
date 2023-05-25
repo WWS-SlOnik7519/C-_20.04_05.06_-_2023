@@ -46,11 +46,6 @@ double MinElement(double[] arr)
     return min;    
 }
 
-double[] newArray = CreateArrayRndDouble(5, 0, 100);
-
-double maxElem = MaxElement(newArray);
-double minElem = MinElement(newArray);
-
 double Difference(double max, double min)
 {
     double diff = max - min;
@@ -58,10 +53,17 @@ double Difference(double max, double min)
     return res;
 }
 
+double[] newArray = CreateArrayRndDouble(5, 0, 100);
+
+double maxElem = MaxElement(newArray);
+double minElem = MinElement(newArray);
+
+double difference = Difference(maxElem, minElem);
+
 // Console.WriteLine($"{maxElem}");
 // Console.WriteLine($"{minElem}");
 
-double difference = Difference(maxElem, minElem);
+
 
 Console.Write("[");
 PrintArrayDouble(newArray, ";");
