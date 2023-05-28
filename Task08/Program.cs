@@ -9,11 +9,11 @@ if (number == 0 || number == 1)
     Console.Write("Нет четных чисел в этом диапазоне!");
 }
 else if (number > 1)
-while (count <= number)
-{
-    Console.Write($"{count}, ");
-    count = count + 2;
-}
+    while (count <= number)
+    {
+        Console.Write($"{count}, ");
+        count = count + 2;
+    }
 else
 {
     Console.Write("Некорректный ввод!");
