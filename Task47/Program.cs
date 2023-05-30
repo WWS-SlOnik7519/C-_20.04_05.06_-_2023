@@ -10,7 +10,7 @@
 // 8 7,8 -7,1 9
 
 
-double[,] CreateMatrixRndInt(int rows, int columns, double min, double max)
+double[,] CreateMatrixRndDouble(int rows, int columns, double min, double max)
 { 
     double[,] matrix = new double[rows, columns];
     Random rnd = new Random();
@@ -39,5 +39,5 @@ void PrintMatrixDouble(double[,] matrix)
     }
 }
 
-double[,] array2d = CreateMatrixRndInt(3, 4, -9, 9);
+double[,] array2d = CreateMatrixRndDouble(3, 4, -9, 9);
 PrintMatrixDouble(array2d);
