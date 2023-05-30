@@ -39,5 +39,5 @@ void PrintMatrixDouble(double[,] matrix)
     }
 }
 
-double[,] array2d = CreateMatrixRndInt(3, 4, 0, 9);
+double[,] array2d = CreateMatrixRndInt(3, 4, -9, 9);
 PrintMatrixDouble(array2d);
