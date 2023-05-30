@@ -7,7 +7,7 @@
 // 1 2 3 4
 // 2 3 4 5
 
-int[,] CreateMatrixRndInt(int rows, int columns)
+int[,] CreateMatrixInt(int rows, int columns)
 {
     int[,] matrix = new int[rows, columns];
 
