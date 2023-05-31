@@ -39,20 +39,26 @@ void PrintMatrixInt(int[,] matrix)
     }
 }
 
-
 Console.Write("Введите номер строки: ");
 int i = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите номер столбца: ");
 int j = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
+if (i <= 0 || j <= 0)
+{
+    Console.WriteLine("Некорректный ввод!");
+    Console.WriteLine();
+}
+else
+{
+    int[,] array2d = CreateMatrixRndInt(3, 4, 0, 10);
+    PrintMatrixInt(array2d);
+    Console.WriteLine();
 
-int[,] array2d = CreateMatrixRndInt(3, 4, 0, 10);
-PrintMatrixInt(array2d);
-Console.WriteLine();
-
-Console.WriteLine(
-    i - 1 < array2d.GetLength(0) && j - 1 < array2d.GetLength(1)
-        ? $"Значение элемента = {array2d[i - 1, j - 1]}"
-        : "Такого элемента в массиве нет!"
-);
-Console.WriteLine();
+    Console.WriteLine(
+        i - 1 < array2d.GetLength(0) && j - 1 < array2d.GetLength(1)
+            ? $"Значение элемента = {array2d[i - 1, j - 1]}"
+            : "Такого элемента в массиве нет!"
+    );
+    Console.WriteLine();
+}
