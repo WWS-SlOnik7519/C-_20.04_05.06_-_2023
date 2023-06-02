@@ -311,3 +311,62 @@ int[] MatrixToArray (int[,] matrix) // переведет двумерную м�
         }
     }
     return arr;
+
+    int[] MinElemIndexes(int[,] matr) // найдет элемент массива с мин.индексом
+{
+    int min = matr[0, 0];
+    int row = 0;
+    int column = 0;
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            if (matr[i, j] <= min)
+            {
+                min = matr[i, j];
+                row = i;
+                column = j;
+            }
+        }
+    }
+    return new int[] { row, column, min };
+}
+
+int[,] DeleteRowCol(int[,] matr, int delRow, int delCol)  // удалит строку и столбец, на пересечении которых расположен наименьший элемент массива
+{
+    int[,] newMatrix = new int[matr.GetLength(0) - 1, matr.GetLength(1) - 1];
+    int m = 0;
+    int n = 0;
+    for (int i = 0; i < newMatrix.GetLength(0); i++)
+    {
+        if (m == delRow) m++;
+        for (int j = 0; j < newMatrix.GetLength(1); j++)
+        {
+            if (n == delCol) n++;
+            newMatrix[i, j] = matr[m, n];
+            n++;
+        }
+        m++;
+        n = 0;
+    }
+    return newMatrix;
+}
+
+double[] ArithmeticAverage(int[,] matr)  // Найдет среднее арифметическое элементов в каждом столбце.
+{
+    double[] arr = new double[matr.GetLength(1)];
+    int k = 0;
+    for (int j = 0; j < matr.GetLength(1); j++)
+    {
+        int sum = 0;
+        double result = 0;
+        for (int i = 0; i < matr.GetLength(0); i++)
+        {
+            sum = sum + matr[i, j];
+        }
+        result = (double)sum / matr.GetLength(0);
+        arr[k] = Math.Round(result, 1);
+        k++;
+    }
+    return arr;
+}
