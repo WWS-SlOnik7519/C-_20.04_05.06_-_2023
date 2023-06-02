@@ -276,3 +276,38 @@ int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)  // поме�
         }
     }
     return matrix;
+
+    void Dictionary (int[] arr)  // покажет, сколько раз встречается элемент входных данных
+{
+    int currentValue = arr[0];
+    int count = 1;
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] == currentValue ) count ++; 
+        else 
+        {
+            Console.WriteLine($"{currentValue} встречается {count} раз");
+            count = 1;
+            currentValue = arr[i];
+        }
+
+    }
+    Console.WriteLine($"{currentValue} встречается {count} раз");
+
+}
+
+int[] MatrixToArray (int[,] matrix) // переведет двумерную марицу в одномерную
+{
+
+    int[] arr = new int [matrix.Length];
+    int k = 0;
+
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        { 
+            arr[k] = matrix[i,j];
+            k++;
+        }
+    }
+    return arr;
