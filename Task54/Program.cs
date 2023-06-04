@@ -41,17 +41,17 @@ void PrintMatrixInt(int[,] matrix)
 void DescendingSort(int[,] matrix)
 {
     int temp = 0;
-    int n = 0;
+    int columns = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            for (n = j + 1; n < matrix.GetLength(1); n++)
-                if (matrix[i, n] > matrix[i, j])
+            for (columns = j + 1; columns < matrix.GetLength(1); columns++)
+                if (matrix[i, columns] > matrix[i, j])
                 {
                     temp = matrix[i, j];
-                    matrix[i, j] = matrix[i, n];
-                    matrix[i, n] = temp;
+                    matrix[i, j] = matrix[i, columns];
+                    matrix[i, columns] = temp;
                 }
         }
     }
