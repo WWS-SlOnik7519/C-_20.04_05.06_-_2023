@@ -312,7 +312,8 @@ int[] MatrixToArray (int[,] matrix) // переведет двумерную м�
     }
     return arr;
 
-    int[] MinElemIndexes(int[,] matr) // найдет элемент массива с мин.индексом
+
+int[] MinElemIndexes(int[,] matr) // найдет элемент массива с мин.значением
 {
     int min = matr[0, 0];
     int row = 0;
@@ -369,4 +370,25 @@ double[] ArithmeticAverage(int[,] matr)  // Найдет среднее ариф
         k++;
     }
     return arr;
+}
+
+
+void DescendingSort(int[,] matrix)  // упорядочит по убыванию элементы каждой строки двумерного массива
+{
+    int temp = 0;
+    int n = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            for (n = j + 1; n < matrix.GetLength(1); n++)
+                if (matrix[i, n] > matrix[i, j])
+                {
+                    temp = matrix[i, j];
+                    matrix[i, j] = matrix[i, n];
+                    matrix[i, n] = temp;
+                }
+        }
+    }
+    PrintMatrixInt(matrix);
 }
