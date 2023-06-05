@@ -55,7 +55,7 @@ void DescendingSort(int[,] matrix)
                 }
         }
     }
-    PrintMatrixInt(matrix);
+   PrintMatrixInt(matrix);
 }
 
 int[,] array2d = CreateMatrixRndInt(3, 4, 0, 10);

@@ -264,18 +264,17 @@ void Replace(int[,] matrix)  // заменяет строки на столбц�
 }
 
 
-int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)  // поменяет местами первую и последнюю строку массива
+void ReplaceMatrixElement (int[,] matrix)  // поменяет местами первую и последнюю строку массива
 {
-    int[,] matrix = new int[rows, columns];
-    Random rnd = new Random();
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = rnd.Next(min, max + 1);
+
+            int temp = matrix[0,j];
+            matrix[0,j] = matrix[matrix.GetLength(0)-1,j];
+            matrix[matrix.GetLength(0)-1,j] = temp;
+
         }
     }
-    return matrix;
 
     void Dictionary (int[] arr)  // покажет, сколько раз встречается элемент входных данных
 {
@@ -332,6 +331,7 @@ int[] MinElemIndexes(int[,] matr) // найдет элемент массива 
     }
     return new int[] { row, column, min };
 }
+
 
 int[,] DeleteRowCol(int[,] matr, int delRow, int delCol)  // удалит строку и столбец, на пересечении которых расположен наименьший элемент массива
 {
