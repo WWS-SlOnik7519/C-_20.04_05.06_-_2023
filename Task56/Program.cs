@@ -74,7 +74,7 @@ int MinElemIndexes(int[] arr) // найдет элемент массива с �
     return rowIndex;
 }
 
-void PrintArrayInt(int[] arr, string sep = ",") // печать массива целых чисел
+void PrintArrayInt(int[] arr, string sep = ",") 
 {
     for (int i = 0; i < arr.Length; i++)
     {
