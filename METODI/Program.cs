@@ -392,3 +392,12 @@ void DescendingSort(int[,] matrix)  // упорядочит по убывани�
     }
     PrintMatrixInt(matrix);
 }
+
+
+int FactorialRec(int n) // факториал числа
+ {
+     if (n == 1) return 1;
+     else return n * FactorialRec(n - 1);
+ }
+
+ Console.WriteLine(FactorialRec(10));
