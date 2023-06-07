@@ -373,6 +373,42 @@ double[] ArithmeticAverage(int[,] matr)  // Найдет среднее ариф
 }
 
 
+int[] RowsSumNum(int[,] matr) // считает сумму элементов в каждой строке
+{
+    int[] arr = new int[matr.GetLength(0)];
+    int k = 0;
+
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            sum = sum + matr[i, j];
+        }
+        arr[k] = sum;
+        k++;
+    }
+    return arr;
+}
+
+
+
+int MinElemIndexes(int[] arr) // найдет элемент массива с мин.значением
+{
+    int min = arr[0];
+    int rowIndex = 0;
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (arr[i] <= min)
+        {
+            min = arr[i];
+            rowIndex = i;
+        }
+    }
+    return rowIndex;
+}
+
+
 void DescendingSort(int[,] matrix)  // упорядочит по убыванию элементы каждой строки двумерного массива
 {
     int temp = 0;
@@ -394,10 +430,73 @@ void DescendingSort(int[,] matrix)  // упорядочит по убывани�
 }
 
 
+int[,] MatrixProduct(int[,] matrA, int[,] matrB)  // произведение двух матриц (А*В)
+{
+    int[,] matrC = new int[matrA.GetLength(0), matrA.GetLength(1)];
+    for (int i = 0; i < matrC.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrC.GetLength(1); j++)
+        {
+            int sum = 0;
+            for (int k = 0; k < matrA.GetLength(1); k++)
+            {
+                sum += matrA[i, k] * matrB[k, j];
+            }
+            matrC[i, j] = sum;
+        }
+
+    }
+    return matrC;
+}
+
+
 int FactorialRec(int n) // факториал числа
  {
      if (n == 1) return 1;
      else return n * FactorialRec(n - 1);
  }
 
- Console.WriteLine(FactorialRec(10));
+
+/*
+int Degree(int numA, int numB)  //возводит число А в целую степень B с помощью рекурсии (вариант 1)
+{
+     if (numB == 0) return 1;
+     return numA * Degree(numA, numB-1); //A 3 3 3 3 3   B 5 4 3 2 1
+}
+*/
+
+ int Degree(int numA, int numB)  //возводит число А в целую степень B с помощью рекурсии (вариант 2)
+ {
+    return numB == 0 ? 1 : numA * Degree(numA, numB-1);
+ }
+
+
+ int SumDigitsInNumberRec(int n)  //которая будет принимать на вход число и возвращать сумму его цифр
+ {
+     if (n == 0) return 0;
+     return n % 10 + SumDigitsInNumberRec(n/10); // 453 45 4
+ }
+
+
+ void NaturalNumbersRange(int numM, int numN)  // выведет все натуральные числа в промежутке от M до N
+{
+    if(numM > numN)
+    {
+        Console.Write($" {numM}");
+        NaturalNumbersRange(numM -1 , numN);
+    }
+    else if(numM < numN)
+    {
+        Console.Write($" {numM}");
+        NaturalNumbersRange(numM + 1, numN);
+    }
+    else Console.Write($" {numM}");
+}
+
+
+void NaturalNumbers (int num)  //  выведет все натуральные числа в промежутке от 1 до N
+{
+    if (num == 0) return;
+    NaturalNumbers (num - 1);
+    Console.Write($"{num} ");
+}
