@@ -500,3 +500,18 @@ void NaturalNumbers (int num)  //  выведет все натуральные 
     NaturalNumbers (num - 1);
     Console.Write($"{num} ");
 }
+
+
+int NaturalNumbersSum(int numM, int numN)  //  найдёт сумму натуральных элементов в промежутке от M до N
+{
+    if (numM <= numN)
+    {
+        if (numM == numN)
+            return numM;
+        return numM + NaturalNumbersSum(numM + 1, numN);
+    }
+    else
+    {
+        return numM + NaturalNumbersSum(numM - 1, numN);
+    }
+}
