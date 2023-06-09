@@ -16,7 +16,7 @@ if (numberM < 0 || numberN < 0)
 else
 {
     int naturalNumbersSum = NaturalNumbersSum(numberM, numberN);
-    Console.WriteLine($"{naturalNumbersSum}");
+    Console.WriteLine($"Сумма натуральных элементов в промежутке от M до N: {naturalNumbersSum}");
 }
 
 int NaturalNumbersSum(int numM, int numN)
