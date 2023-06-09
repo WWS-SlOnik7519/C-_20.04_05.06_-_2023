@@ -26,13 +26,5 @@ int Akk(int m, int n)
     {
         return Akk(m - 1, Akk(m, n - 1));
     }
-    // return Akk;
 }
 
-
-//  если n = 0
-//      вернуть m + 1
-//    иначе, если m = 0
-//      вернуть ack (n - 1, 1)
-//    еще
-//      вернуть ack(n - 1, ack (n, m - 1))
